@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/BtnIniciar"
+        android:id="@+id/BtnIniciar_login"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="113dp"
         android:layout_height="44dp"
@@ -21,7 +22,7 @@
         android:text="Iniciar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/TxtContraseña_login" />
 
     <TextView
         android:id="@+id/LblUsuario"
@@ -37,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/TxtUsuario"
+        android:id="@+id/TxtUsuario_login"
         android:layout_width="264dp"
         android:layout_height="41dp"
         android:layout_marginStart="48dp"
@@ -45,6 +46,7 @@
         android:layout_marginTop="4dp"
         android:contentDescription="Ingrese su nombre de usuario."
         android:ems="10"
+        android:hint="Correo electrónico"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LblUsuario" />
@@ -59,16 +61,17 @@
         android:text="Contraseña"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/TxtUsuario_login" />
 
     <EditText
-        android:id="@+id/TxtContraseña"
+        android:id="@+id/TxtContraseña_login"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="4dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LblContraseña" />
@@ -92,7 +95,7 @@
         app:srcCompat="@drawable/sosapplogo" />
 
     <Button
-        android:id="@+id/BtnRegistrarse"
+        android:id="@+id/BtnRegistrarse_login"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -102,13 +105,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="Registro"
+        android:onClick="registro"
         android:text="Registarse aquí."
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtnIniciar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/BtnIniciar_login"
+        app:layout_constraintVertical_bias="0.14" />
 
 </android.support.constraint.ConstraintLayout>
