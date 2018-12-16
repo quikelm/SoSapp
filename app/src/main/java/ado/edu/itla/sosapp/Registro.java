@@ -36,24 +36,37 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (nombreText.getText().toString().length() == 0 || emailText.getText().toString().length() == 0 || passwordText.getText().toString().length() == 0 || password2Text.getText().toString().length() == 0){
+
+                if (nombreText.getText().toString().length() == 0 || emailText.getText().toString().length() == 0 || passwordText.getText().toString().length() == 0 || password2Text.getText().toString().length() == 0) {
 
                     Toast.makeText(Registro.this, "Existen campos en blanco.", Toast.LENGTH_SHORT).show();
                     return;
+                }
+
+                if (passwordText.getText().toString().equals(password2Text.getText().toString())){
+
+                    Usuario usuario = new Usuario();
+                    usuario.setNombre(nombreText.getText().toString());
+                    usuario.setEmail(emailText.getText().toString());
+                    usuario.setPassword(passwordText.getText().toString());
+
+                    Log.i(TAG, usuario.toString());
+                    usuarioRepositorio.guardar(usuario);
+                    Log.i(TAG, usuario.toString());
+
+                    nombreText.setText("");
+                    emailText.setText("");
+                    passwordText.setText("");
+                    password2Text.setText("");
+
+                    // Pasando la Activity de incio, luego de logueado
+                    Intent i=new Intent(Registro.this, MainActivity.class);
+                    startActivity(i);
 
                 }else{
 
-                Usuario usuario = new Usuario();
-                usuario.setNombre(nombreText.getText().toString());
-                usuario.setEmail(emailText.getText().toString());
-                usuario.setPassword(passwordText.getText().toString());
-
-                Log.i(TAG, usuario.toString());
-                usuarioRepositorio.guardar(usuario);
-                Log.i(TAG, usuario.toString());
-
-
-                emailText.requestFocus();
+                    Toast.makeText(Registro.this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show();
+                    return;
 
                 }
             }

@@ -7,4 +7,5 @@ public interface UsuarioRepositorio {
     void guardar (Usuario usuario);
 
     Usuario buscar (String email);
+
 }

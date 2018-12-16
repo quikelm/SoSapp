@@ -47,4 +47,6 @@ public class UsuarioRepositorioImpl implements UsuarioRepositorio {
          db.close();
         return usuario;
     }
+
+
 }

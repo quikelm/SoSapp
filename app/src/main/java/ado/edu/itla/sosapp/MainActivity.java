@@ -13,7 +13,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import ado.edu.itla.sosapp.entidad.Area;
 import ado.edu.itla.sosapp.entidad.Usuario;
+import ado.edu.itla.sosapp.repositorio.SessionManager;
 import ado.edu.itla.sosapp.repositorio.usuario.UsuarioRepositorio;
 import ado.edu.itla.sosapp.repositorio.usuario.UsuarioRepositorioImpl;
 
@@ -24,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     //Creando variables locales.
     EditText email, password;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +57,16 @@ public class MainActivity extends AppCompatActivity {
 
                     Usuario usuario =  usuarioRepositorio.buscar(email.getText().toString().trim());
                     if(usuario !=null && usuario.getPassword().equals(password.getText().toString().trim())) {
-                        Toast.makeText(getApplicationContext(), "Usuario Logueado \nNombre: " + usuario.getNombre(),
+                        Toast.makeText(getApplicationContext(), "Usuario\nNombre: " + usuario.getNombre(),
                             Toast.LENGTH_SHORT).show();
+
+                        SessionManager sessionManager = new SessionManager(v.getContext());
+
+                        sessionManager.set("idlogin", String.valueOf(usuario.getEmail()));
+                        // Pasando la Activity de incio, luego de logueado
+                        Intent i=new Intent(MainActivity.this, Inicio.class);
+                        startActivity(i);
+
                     }else {
 
                         Toast.makeText(getApplicationContext(), "Usuario o Contraseña incorrectos",

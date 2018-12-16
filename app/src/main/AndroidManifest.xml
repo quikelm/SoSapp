@@ -16,9 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registro">
-
-        </activity>
+        <activity android:name=".Registro" />
+        <activity android:name=".Inicio" />
+        <activity android:name=".SolicitudActivity" />
+        <activity android:name=".AreaActivity" />
+        <activity android:name=".activity_configuracion" />
+        <activity android:name=".cambiar_clave"></activity>
     </application>
 
 </manifest>

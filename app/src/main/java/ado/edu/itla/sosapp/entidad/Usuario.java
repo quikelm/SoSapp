@@ -1,7 +1,5 @@
 package ado.edu.itla.sosapp.entidad;
 
-import android.database.sqlite.SQLiteDatabase;
-
 public class Usuario {
 
     public int id;
